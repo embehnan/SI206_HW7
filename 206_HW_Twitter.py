@@ -69,7 +69,15 @@ try:
     cache_file=open(CACHE_FNAME, 'r')
 
 
-#next commit 
+#next commit
+cache_fname = 'twitter_cache.json'
+try:
+	cache_file = open(cache_fname, 'r') #trying to read file
+	cache_data = cache_file.read() #data into string if present
+	cache_dict = json.loads(cache_data) #putting into dictionary
+	cache_file.close() #closes file
+except:
+	cache_dict = {}
 
 ## 2. Write a function to get twitter data that works with the caching pattern,
 ## 		so it either gets new data or caches data, depending upon what the input
